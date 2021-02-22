@@ -1,13 +1,21 @@
+#define DEBUG
+
 #include <linux/module.h>
 
-static int __init test_init(void)
+void call_func(void)
 {
 	int i = 0;
-
 	pr_debug("%s: \n", __func__);
 
 	i = 10;
 	pr_debug("%s: i = %d\n", __func__, i);
+}
+
+static int __init test_init(void)
+{
+	pr_debug("%s: \n", __func__);
+
+	call_func();
 
 	return 0;
 }
@@ -15,6 +23,7 @@ static int __init test_init(void)
 static void __exit test_exit(void)
 {
 	pr_debug("%s: \n", __func__);
+	call_func();
 }
 
 module_init(test_init);
