@@ -1,6 +1,7 @@
 #define DEBUG
 
 #include <linux/module.h>
+#include <linux/slab.h>
 
 void call_func(void)
 {
