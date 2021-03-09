@@ -1,5 +1,12 @@
-KERN_DIR := /mnt/linux
-ROOTFS_DIR := /mnt/minirootfs/rootfs
+## Determine if you are compiling on Docker or the Ubuntu host
+ifneq ($(wildcard /.dockerenv),)
+	KERN_DIR := /mnt/linux
+	ROOTFS_DIR := /mnt/minirootfs/rootfs
+else
+	KERN_DIR := /usr/src/linux-headers-`uname -r`
+	ROOTFS_DIR := /
+endif
+
 
 obj-m += test.o
 
