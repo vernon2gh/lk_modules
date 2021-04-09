@@ -9,6 +9,7 @@ endif
 
 
 obj-m += mem.o
+obj-m += kmem_cache.o
 
 all:
 	make -C $(KERN_DIR) M=$(PWD) modules
