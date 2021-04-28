@@ -10,6 +10,7 @@ endif
 
 obj-m += mem.o
 obj-m += kmem_cache.o
+obj-m += buddy.o
 
 all:
 	make -C $(KERN_DIR) M=$(PWD) modules
